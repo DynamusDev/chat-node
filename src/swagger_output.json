@@ -5,7 +5,7 @@
     "title": "Chat API",
     "description": "Documentação para a API do SmartBox App."
   },
-  "host": "localhost:3333",
+  "host": "chat-cadmus.herokuapp.com",
   "basePath": "/",
   "tags": [
     {
