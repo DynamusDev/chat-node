@@ -1,0 +1,46 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "ts-node-dev --transpile-only --ignore-watch node_modules src/swagger.ts",
+    "prod": "tsc && node ./dist/server.js",
+    "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js",
+    "swagger-autogen": "node src/swagger.ts",
+    "start": "node dist/swagger.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-async-errors": "^3.1.1",
+    "googleapis": "^67.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "nodemailer": "^6.4.17",
+    "pg": "^8.5.1",
+    "socket.io": "2.3.0",
+    "swagger-autogen": "^2.5.9",
+    "swagger-jsdoc": "^6.0.2",
+    "swagger-ui-express": "^4.1.6",
+    "typeorm": "^0.2.30",
+    "yup": "^0.32.9"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.2",
+    "@types/cors": "^2.8.9",
+    "@types/express": "^4.17.11",
+    "@types/jsonwebtoken": "^8.5.0",
+    "@types/node": "^14.14.22",
+    "@types/nodemailer": "^6.4.0",
+    "@types/socket.io": "^2.1.13",
+    "@types/swagger-jsdoc": "^6.0.0",
+    "@types/swagger-ui-express": "^4.1.2",
+    "@typescript-eslint/eslint-plugin": "^4.14.2",
+    "@typescript-eslint/parser": "^4.14.2",
+    "ts-node-dev": "^1.1.1",
+    "typescript": "^4.1.3"
+  }
+}
