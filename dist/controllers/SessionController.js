@@ -21,7 +21,7 @@ exports.default = {
         } */
         const { email, password } = request.body;
         const usr = typeorm_1.getRepository(User_1.default);
-        const user = await usr.findOne({ where: { email: email } });
+        const user = await usr.findOne({ where: { email: email }, relations: ['messages'] });
         if (!user) {
             /* #swagger.responses[403] = {
               schema: { $ref: "#/definitions/ErrorUserDeleted" },

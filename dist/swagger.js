@@ -12,7 +12,7 @@ const doc = {
     info: {
         version: "1.0.1",
         title: "Chat API",
-        description: "Documentação para a API do SmartBox App."
+        description: "Documentação para a API do Chat Cadmus."
     },
     host: process.env.SWAGGER_HOST,
     basePath: "/",
@@ -66,6 +66,9 @@ const doc = {
         Messages: {
             messages: []
         },
+        Users: {
+            users: []
+        },
         Session: {
             email: 'alexandrenascimento@live.com',
             password: 'q1w2e3r4',
@@ -83,6 +86,10 @@ const doc = {
             message: 'Succesfuly',
             user: {},
             token: 'token'
+        },
+        DeletedUser: {
+            status: 200,
+            message: `Succesfuly user deleted`,
         },
     }
 };

@@ -84,5 +84,39 @@ exports.default = {
                 user: newUser
             });
         }
+    },
+    async list(request, response) {
+        // #swagger.tags = ['User']
+        // #swagger.description = 'Endpoint para listar os usuários.'
+        const userRepository = typeorm_1.getRepository(User_1.default);
+        const users = (await userRepository.find({ where: { deletedAt: null }, relations: ['messages'] }));
+        /* #swagger.responses[200] = {
+                schema: { $ref: "#/definitions/Users" },
+                message: 'O usuário foi cadastrado!!!'
+        } */
+        return response.status(200).json({
+            status: 200,
+            message: 'mensagem enviada!!!',
+            users
+        });
+    },
+    async delete(request, response) {
+        // #swagger.tags = ['User']
+        // #swagger.description = 'Endpoint paradeletar um usuário.'
+        const userRepository = typeorm_1.getRepository(User_1.default);
+        const { id } = request.params;
+        const user = await userRepository.findOneOrFail(id);
+        userRepository.merge(user, {
+            deletedAt: new Date()
+        });
+        await userRepository.save(user);
+        /* #swagger.responses[200] = {
+                  schema: { $ref: "#/definitions/DeletedUser" },
+                  description: 'Usuários Deletado'
+          } */
+        return response.status(200).json({
+            status: 200,
+            message: `Succesfuly user deleted`,
+        });
     }
 };

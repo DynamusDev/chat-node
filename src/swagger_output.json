@@ -3,7 +3,7 @@
   "info": {
     "version": "1.0.1",
     "title": "Chat API",
-    "description": "Documentação para a API do SmartBox App."
+    "description": "Documentação para a API do Chat Cadmus."
   },
   "host": "chat-cadmus.herokuapp.com",
   "basePath": "/",
@@ -110,6 +110,48 @@
               "$ref": "#/definitions/CreateError"
             },
             "error": "Esse usuário já existe"
+          }
+        }
+      }
+    },
+    "/users/list": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "description": "Endpoint para ____FUNC____ os usuários.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Users"
+            },
+            "message": "O usuário foi cadastrado!!!"
+          }
+        }
+      }
+    },
+    "/users/delete/{id}": {
+      "delete": {
+        "tags": [
+          "User"
+        ],
+        "description": "Endpoint paradeletar um usuário.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Usuários Deletado",
+            "schema": {
+              "$ref": "#/definitions/DeletedUser"
+            }
           }
         }
       }
@@ -275,6 +317,16 @@
         }
       }
     },
+    "Users": {
+      "type": "object",
+      "properties": {
+        "users": {
+          "type": "array",
+          "example": [],
+          "items": {}
+        }
+      }
+    },
     "Session": {
       "type": "object",
       "properties": {
@@ -332,6 +384,19 @@
         "token": {
           "type": "string",
           "example": "token"
+        }
+      }
+    },
+    "DeletedUser": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "number",
+          "example": 200
+        },
+        "message": {
+          "type": "string",
+          "example": "Succesfuly user deleted"
         }
       }
     }
