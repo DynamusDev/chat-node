@@ -66,7 +66,7 @@ export default {
 
   async get(request: Request, response: Response) {
     // #swagger.tags = ['Teste Cadmus']
-    // #swagger.description = 'Endpoint para pegas as infos do teste de Frontend Cadmus.'
+    // #swagger.description = 'Endpoint para listar as infos do teste de Frontend Cadmus.'
 
     /* #swagger.responses[200] = { 
             schema: { $ref: "#/definitions/GamerResponse" },

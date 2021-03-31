@@ -218,7 +218,7 @@
                 "tags": [
                     "Teste Cadmus"
                 ],
-                "description": "Endpoint para pegas as infos do teste de Frontend Cadmus.",
+                "description": "Endpoint para listar as infos do teste de Frontend Cadmus.",
                 "parameters": [],
                 "responses": {
                     "200": {

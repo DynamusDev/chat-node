@@ -57,7 +57,7 @@ exports.default = {
     },
     async get(request, response) {
         // #swagger.tags = ['Teste Cadmus']
-        // #swagger.description = 'Endpoint para pegas as infos do teste de Frontend Cadmus.'
+        // #swagger.description = 'Endpoint para listar as infos do teste de Frontend Cadmus.'
         /* #swagger.responses[200] = {
                 schema: { $ref: "#/definitions/GamerResponse" },
                 message: 'O usuário foi cadastrado!!!'
