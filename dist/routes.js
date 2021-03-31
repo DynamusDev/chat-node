@@ -16,3 +16,4 @@ exports.routes.get('/users/list', UserController_1.default.list); // Listar usu√
 exports.routes.delete('/users/delete/:id', UserController_1.default.delete); // Deletar usu√°rios
 exports.routes.post('/chat/send', ChatController_1.default.create); // Enviar mensagem
 exports.routes.get('/chat/list', ChatController_1.default.list); // Listar mensagens
+exports.routes.get('/teste/gamers', ChatController_1.default.get); // Enviar mensagem

@@ -15,3 +15,5 @@ routes.delete('/users/delete/:id', UserController.delete); // Deletar usuários
 
 routes.post('/chat/send', ChatController.create); // Enviar mensagem
 routes.get('/chat/list', ChatController.list); // Listar mensagens
+
+routes.get('/teste/gamers', ChatController.get); // Enviar mensagem

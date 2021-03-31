@@ -19,9 +19,12 @@
         {
             "name": "Message",
             "description": "Send"
+        },
+        {
+            "name": "Teste Cadmus",
+            "description": "Get gamer data"
         }
     ],
-    "schemes": "http",
     "consumes": [
         "application/json"
     ],
@@ -204,6 +207,24 @@
                         "description": "OK",
                         "schema": {
                             "$ref": "#/definitions/Messages"
+                        },
+                        "message": "O usuário foi cadastrado!!!"
+                    }
+                }
+            }
+        },
+        "/teste/gamers": {
+            "get": {
+                "tags": [
+                    "Teste Cadmus"
+                ],
+                "description": "Endpoint para pegas as infos do teste de Frontend Cadmus.",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/GamerResponse"
                         },
                         "message": "O usuário foi cadastrado!!!"
                     }
@@ -397,6 +418,154 @@
                 "message": {
                     "type": "string",
                     "example": "Succesfuly user deleted"
+                }
+            }
+        },
+        "GamerResponse": {
+            "type": "object",
+            "properties": {
+                "status": {
+                    "type": "number",
+                    "example": 200
+                },
+                "user": {
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "number",
+                            "example": 11231
+                        },
+                        "name": {
+                            "type": "string",
+                            "example": "Cadmus gameplay"
+                        },
+                        "email": {
+                            "type": "string",
+                            "example": "gameplay.cadmus@cadmus.com.br"
+                        },
+                        "image": {
+                            "type": "string",
+                            "example": "http://google.com.br"
+                        },
+                        "experience": {
+                            "type": "number",
+                            "example": 1150
+                        },
+                        "maxExperience": {
+                            "type": "number",
+                            "example": 2100
+                        },
+                        "matches": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "image": {
+                                        "type": "string",
+                                        "example": "http://google.com.br"
+                                    },
+                                    "title": {
+                                        "type": "string",
+                                        "example": "ranked"
+                                    },
+                                    "victory": {
+                                        "type": "number",
+                                        "example": 235
+                                    },
+                                    "defeat": {
+                                        "type": "number",
+                                        "example": 432
+                                    },
+                                    "playersWaiting": {
+                                        "type": "number",
+                                        "example": 15
+                                    },
+                                    "button": {
+                                        "type": "object",
+                                        "properties": {
+                                            "icon": {
+                                                "type": "string",
+                                                "example": "https://google.com.br"
+                                            },
+                                            "title": {
+                                                "type": "string",
+                                                "example": "entrar na fila"
+                                            },
+                                            "link": {
+                                                "type": "string",
+                                                "example": "https:google.com.br"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "levels": {
+                    "type": "object",
+                    "properties": {
+                        "casual": {
+                            "type": "number",
+                            "example": 1
+                        },
+                        "amateur": {
+                            "type": "number",
+                            "example": 700
+                        },
+                        "competitive": {
+                            "type": "number",
+                            "example": 1400
+                        },
+                        "professional": {
+                            "type": "number",
+                            "example": 2100
+                        }
+                    }
+                },
+                "roms": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "type": "number",
+                                "example": 162
+                            },
+                            "title": {
+                                "type": "string",
+                                "example": "Sala EstagiÃ¡rios"
+                            },
+                            "category": {
+                                "type": "string",
+                                "example": "backend"
+                            },
+                            "map": {
+                                "type": "string",
+                                "example": "map_java"
+                            },
+                            "players": {
+                                "type": "number",
+                                "example": 3
+                            },
+                            "capacity": {
+                                "type": "number",
+                                "example": 12
+                            },
+                            "image": {
+                                "type": "string",
+                                "example": "http://google.com.br"
+                            }
+                        }
+                    }
+                },
+                "online": {
+                    "type": "number",
+                    "example": 123
+                },
+                "bans": {
+                    "type": "number",
+                    "example": 150
                 }
             }
         }
