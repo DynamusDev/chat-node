@@ -2,7 +2,7 @@
     "swagger": "2.0",
     "info": {
         "version": "1.0.1",
-        "title": "Chat API",
+        "title": "Cadmus API",
         "description": "Documentação para a API do Chat Cadmus."
     },
     "host": "chat-cadmus.herokuapp.com",

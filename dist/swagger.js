@@ -11,7 +11,7 @@ const endpointsFiles = [`./${process.env.ROUTE}routes.${process.env.EXTENSION}`]
 const doc = {
     info: {
         version: "1.0.1",
-        title: "Chat API",
+        title: "Cadmus API",
         description: "Documentação para a API do Chat Cadmus."
     },
     host: process.env.SWAGGER_HOST,
