@@ -5,7 +5,7 @@
     "title": "Cadmus API",
     "description": "Documentação para a API do Chat Cadmus."
   },
-  "host": "chat-cadmus.herokuapp.com",
+  "host": "localhost:3333",
   "basePath": "/",
   "tags": [
     {
@@ -25,6 +25,7 @@
       "description": "Get gamer data"
     }
   ],
+  "schemes": "http",
   "consumes": [
     "application/json"
   ],
@@ -86,7 +87,7 @@
         "tags": [
           "User"
         ],
-        "description": "Endpoint para criar os usuários.",
+        "description": "Endpoint para cadastrar os usuários.",
         "parameters": [
           {
             "name": "Data",
@@ -122,7 +123,7 @@
         "tags": [
           "User"
         ],
-        "description": "Endpoint para ____FUNC____ os usuários.",
+        "description": "Endpoint para mostrar os usuários.",
         "parameters": [],
         "responses": {
           "200": {
@@ -140,7 +141,7 @@
         "tags": [
           "User"
         ],
-        "description": "Endpoint paradeletar um usuário.",
+        "description": "Endpoint para deletar um usuário.",
         "parameters": [
           {
             "name": "id",
@@ -213,20 +214,24 @@
         }
       }
     },
-    "/teste/gamers": {
-      "get": {
+    "/upload": {
+      "post": {
         "tags": [
-          "Teste Cadmus"
+          "Upload"
         ],
-        "description": "Endpoint para listar as infos do teste de Frontend Cadmus.",
-        "parameters": [],
+        "description": "Endpoint para fazer upload de arquivos.",
+        "parameters": [
+          {
+            "name": "image",
+            "in": "formData",
+            "required": true,
+            "description": "image",
+            "type": "file"
+          }
+        ],
         "responses": {
           "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/GamerResponse"
-            },
-            "message": "O usuário foi cadastrado!!!"
+            "description": "OK"
           }
         }
       }

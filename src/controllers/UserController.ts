@@ -7,7 +7,7 @@ import * as Yup from 'yup';
 export default {
   async create(request: Request, response: Response) {
     // #swagger.tags = ['User']
-    // #swagger.description = 'Endpoint para criar os usuários.'
+    // #swagger.description = 'Endpoint para cadastrar os usuários.'
     /* #swagger.parameters['Data'] = {
               in: 'body',
               required: true,
@@ -77,7 +77,7 @@ export default {
 
   async list(request: Request, response: Response) {
     // #swagger.tags = ['User']
-    // #swagger.description = 'Endpoint para listar os usuários.'
+    // #swagger.description = 'Endpoint para mostrar os usuários.'
     const userRepository = getRepository(User);
 
     const users = (await userRepository.find({ where: { deletedAt: null }, relations: ['messages'] }));
@@ -95,7 +95,7 @@ export default {
 
   async delete(request: Request, response: Response) {
     // #swagger.tags = ['User']
-    // #swagger.description = 'Endpoint paradeletar um usuário.'
+    // #swagger.description = 'Endpoint para deletar um usuário.'
     const userRepository = getRepository(User);
     const { id } = request.params;
 
