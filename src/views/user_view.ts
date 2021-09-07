@@ -8,7 +8,7 @@ export function userRender(user: User) {
     name: user.name,
     email: user.email,
     image: user.image,
-    messages: chatRenderMany(user.messages),
+    messages: user.messages,
     transactions: user.transactions,
     createdAt: user.createdAt,
     updatedAt: user.updatedAt,
