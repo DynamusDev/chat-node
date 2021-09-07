@@ -16,6 +16,9 @@ export default class User {
   @Column({ type: 'varchar' })
   password: string;
 
+  @Column({ type: 'varchar', nullable: true })
+  image: string;
+
   @OneToMany(() => Chat, chat => chat.author, { onDelete: 'SET NULL', onUpdate: 'CASCADE' })
   messages: Chat[];
 

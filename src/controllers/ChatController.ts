@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import { getRepository } from 'typeorm';
 import Chat from '../models/Chat';
+import { chatRender, chatRenderMany } from '../views/chat_view'
 
 export default {
   async create(request: Request, response: Response) {
@@ -31,24 +32,20 @@ export default {
     await chatRepository.save(newMessage)
 
     /* #swagger.responses[200] = { 
-            schema: { $ref: "#/definitions/User" },
+            schema: { $ref: "#/definitions/SendMessage" },
             message: 'O usuário foi cadastrado!!!' 
-    } */
-    /* #swagger.responses[400] = { 
-            schema: { $ref: "#/definitions/CreateError" },
-            error: 'Esse usuário já existe' 
     } */
     request.socket.emit('chat', data)
     return response.status(200).json({
       status: 200,
       message: 'mensagem enviada!!!',
-      user: newMessage
+      SendedMessage: chatRender(newMessage)
     });
   },
 
   async list(request: Request, response: Response) {
     // #swagger.tags = ['Message']
-    // #swagger.description = 'Endpoint para listar as mensagens.'
+    // #swagger.description = 'Endpoint para mostrar as mensagens.'
     const chatRepository = getRepository(Chat);
 
     const messages = (await chatRepository.find({ where: { deletedAt: null } }));
@@ -60,7 +57,7 @@ export default {
     return response.status(200).json({
       status: 200,
       message: 'mensagem enviada!!!',
-      messages
+      messages: chatRenderMany(messages)
     });
   }
 };

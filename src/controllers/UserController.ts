@@ -3,6 +3,7 @@ import { getRepository } from 'typeorm';
 import User from '../models/User';
 import bcrypt from 'bcryptjs';
 import * as Yup from 'yup';
+import { userRender, userRenderMany } from '../views/user_view';
 
 export default {
   async create(request: Request, response: Response) {
@@ -70,9 +71,59 @@ export default {
       return response.status(200).json({
         status: 200,
         message: 'O usuário ' + name + ' foi cadastrado!!!',
-        user: newUser
+        user: userRender(newUser)
       });
     }
+  },
+
+  async edit(request: Request, response: Response) {
+    // #swagger.tags = ['User']
+    // #swagger.description = 'Endpoint para alterar os dados do usuário.'
+    /* #swagger.parameters['Data'] = {
+              in: 'body',
+              required: true,
+              description: 'Dados do usuário',
+              type: 'object',
+              schema: { $ref: "#/definitions/EditUserTemplate" },
+    } */
+    const { id } = request.params
+    const {
+      name,
+      email,
+      password,
+      image
+    } = request.body;
+
+    const userRepository = getRepository(User);
+
+    let hashedPassword;
+
+    try {
+      hashedPassword = await bcrypt.hash(password, 12);
+    } catch (err) {
+      console.error(err);
+    }
+
+    const user: any = await userRepository.findOne(id, { relations: ['messages'] });
+    userRepository.merge(user, {
+      name,
+      email,
+      password: hashedPassword,
+      image
+    })
+
+    await userRepository.save(user)
+
+    /* #swagger.responses[200] = { 
+              schema: { $ref: "#/definitions/User" },
+              message: 'Dados do usuário foram atualizados!!!' 
+      } */
+
+    return response.status(200).json({
+      status: 200,
+      message: 'Dados do usuário ' + name + ' foram atualizados!!!',
+      user: userRender(user)
+    });
   },
 
   async list(request: Request, response: Response) {
@@ -88,8 +139,7 @@ export default {
     } */
     return response.status(200).json({
       status: 200,
-      message: 'mensagem enviada!!!',
-      users
+      users: userRenderMany(users)
     });
   },
 
