@@ -1,7 +1,6 @@
 import { Request, Response } from 'express';
 import { getRepository } from 'typeorm';
 import Transaction from '../models/Transaction';
-import { chatRender, chatRenderMany } from '../views/chat_view'
 import { transactionRender, transactionRenderMany } from '../views/transactions_view';
 
 export default {

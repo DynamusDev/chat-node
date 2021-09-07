@@ -6,6 +6,7 @@ export function transactionRender(transaction: Transaction) {
     id: transaction.id,
     title: transaction.title,
     category: transaction.category,
+    type: transaction.type,
     amount: transaction.amount,
     createdAt: transaction.createdAt
   }
@@ -16,6 +17,7 @@ export function transactionRenderMany(transactions: Transaction[]) {
     id: transaction.id,
     title: transaction.title,
     category: transaction.category,
+    type: transaction.type,
     amount: transaction.amount,
     createdAt: transaction.createdAt,
     user: {

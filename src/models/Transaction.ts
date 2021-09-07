@@ -11,6 +11,9 @@ export default class Transactions {
   
   @Column({ type: 'varchar' })
   category: string;
+  
+  @Column({ type: 'varchar' })
+  type: string;
  
   @Column({ type: 'varchar' })
   amount: number;

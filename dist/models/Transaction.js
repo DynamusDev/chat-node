@@ -30,6 +30,10 @@ __decorate([
 ], Transactions.prototype, "category", void 0);
 __decorate([
     typeorm_1.Column({ type: 'varchar' }),
+    __metadata("design:type", String)
+], Transactions.prototype, "type", void 0);
+__decorate([
+    typeorm_1.Column({ type: 'varchar' }),
     __metadata("design:type", Number)
 ], Transactions.prototype, "amount", void 0);
 __decorate([
