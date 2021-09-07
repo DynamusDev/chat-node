@@ -13,51 +13,34 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const typeorm_1 = require("typeorm");
-const Chat_1 = __importDefault(require("./Chat"));
-const Transaction_1 = __importDefault(require("./Transaction"));
-let User = class User {
+const User_1 = __importDefault(require("./User"));
+let Transactions = class Transactions {
 };
 __decorate([
     typeorm_1.PrimaryGeneratedColumn('increment'),
     __metadata("design:type", Number)
-], User.prototype, "id", void 0);
+], Transactions.prototype, "id", void 0);
 __decorate([
     typeorm_1.Column({ type: 'varchar' }),
     __metadata("design:type", String)
-], User.prototype, "name", void 0);
+], Transactions.prototype, "title", void 0);
 __decorate([
     typeorm_1.Column({ type: 'varchar' }),
     __metadata("design:type", String)
-], User.prototype, "email", void 0);
+], Transactions.prototype, "category", void 0);
 __decorate([
     typeorm_1.Column({ type: 'varchar' }),
-    __metadata("design:type", String)
-], User.prototype, "password", void 0);
+    __metadata("design:type", Number)
+], Transactions.prototype, "amount", void 0);
 __decorate([
-    typeorm_1.Column({ type: 'varchar', nullable: true }),
-    __metadata("design:type", String)
-], User.prototype, "image", void 0);
-__decorate([
-    typeorm_1.OneToMany(() => Chat_1.default, chat => chat.author, { onDelete: 'SET NULL', onUpdate: 'CASCADE' }),
-    __metadata("design:type", Array)
-], User.prototype, "messages", void 0);
-__decorate([
-    typeorm_1.OneToMany(() => Transaction_1.default, transaction => transaction.user, { onDelete: 'SET NULL', onUpdate: 'CASCADE' }),
-    __metadata("design:type", Array)
-], User.prototype, "transactions", void 0);
+    typeorm_1.ManyToOne(() => User_1.default, user => user.messages, { onDelete: 'SET NULL', onUpdate: 'CASCADE', eager: true }),
+    __metadata("design:type", User_1.default)
+], Transactions.prototype, "user", void 0);
 __decorate([
     typeorm_1.Column({ type: 'date' }),
     __metadata("design:type", Date)
-], User.prototype, "createdAt", void 0);
-__decorate([
-    typeorm_1.Column({ nullable: true, type: 'date' }),
-    __metadata("design:type", Date)
-], User.prototype, "updatedAt", void 0);
-__decorate([
-    typeorm_1.Column({ nullable: true, type: 'date' }),
-    __metadata("design:type", Date)
-], User.prototype, "deletedAt", void 0);
-User = __decorate([
-    typeorm_1.Entity('users')
-], User);
-exports.default = User;
+], Transactions.prototype, "createdAt", void 0);
+Transactions = __decorate([
+    typeorm_1.Entity('transactions')
+], Transactions);
+exports.default = Transactions;

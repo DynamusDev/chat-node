@@ -10,9 +10,9 @@ const outputFile = `./src/swagger_output.json`;
 const endpointsFiles = [`./${process.env.ROUTE}routes.${process.env.EXTENSION}`];
 const doc = {
     info: {
-        version: "1.0.1",
-        title: "Cadmus API",
-        description: "Documentação para a API do Chat Cadmus."
+        version: "1.0.2",
+        title: "Dynamusdev API",
+        description: "Documentação para a API Dynamusdev."
     },
     host: process.env.SWAGGER_HOST,
     basePath: "/",
@@ -33,9 +33,13 @@ const doc = {
             "description": "Send"
         },
         {
-            "name": "Teste Cadmus",
-            "description": "Get gamer data"
-        }
+            "name": "Transactions",
+            "description": "Create and List"
+        },
+        {
+            "name": "Upload",
+            "description": "Upload images, videos and audios"
+        },
     ],
     definitions: {
         User: {
@@ -49,9 +53,39 @@ const doc = {
             email: 'alexandrenascimento@live.com',
             password: 'q1w2e3r4',
         },
+        EditUserTemplate: {
+            name: 'Alexandre Alves Nascimento',
+            email: 'alexandrenascimento@live.com',
+            image: 'https://img.icons8.com/officel/2x/person-male-skin-type-6.png',
+            password: 'q1w2e3r4'
+        },
+        ForgotPassword: {
+            email: 'alexandrenascimento@live.com',
+        },
+        SuccessChangePass: {
+            status: 200,
+            message: 'Uma nova senha foi enviada para o seu email',
+        },
         MessageTemplate: {
             message: 'E aí, qual vai ser?',
             author: 1
+        },
+        TransactionTemplate: {
+            title: 'Freelance de website',
+            category: 'Desenvolvimento',
+            type: 'deposit',
+            amount: 6000,
+            user: 1
+        },
+        Transaction: {
+            title: 'Freelance de website',
+            category: 'Desenvolvimento',
+            type: 'deposit',
+            amount: 6000,
+            user: {}
+        },
+        Transactions: {
+            transactions: []
         },
         CreateError: {
             error: 'Esse usuário já existe'
@@ -65,7 +99,7 @@ const doc = {
             user: 1
         },
         SendMessage: {
-            message: 'Comando enviado!!!'
+            message: 'Mensagem enviada'
         },
         Messages: {
             messages: []
@@ -95,105 +129,6 @@ const doc = {
             status: 200,
             message: `Succesfuly user deleted`,
         },
-        GamerResponse: {
-            status: 200,
-            "user": {
-                "id": 11231,
-                "name": "Cadmus gameplay",
-                "email": "gameplay.cadmus@cadmus.com.br",
-                "image": "http://google.com.br",
-                "experience": 1150,
-                "maxExperience": 2100,
-                "matches": [
-                    {
-                        "image": "http://google.com.br",
-                        "title": "lobby",
-                        "victory": 235,
-                        "defeat": 432,
-                        "button": {
-                            "icon": "https://google.com.br",
-                            "title": "ir para o lobby",
-                            "link": "https:google.com.br"
-                        }
-                    },
-                    {
-                        "image": "http://google.com.br",
-                        "title": "ranked",
-                        "victory": 235,
-                        "defeat": 432,
-                        "playersWaiting": 15,
-                        "button": {
-                            "icon": "https://google.com.br",
-                            "title": "entrar na fila",
-                            "link": "https:google.com.br"
-                        }
-                    }
-                ]
-            },
-            "levels": {
-                "casual": 1,
-                "amateur": 700,
-                "competitive": 1400,
-                "professional": 2100
-            },
-            "roms": [
-                {
-                    "id": 123,
-                    "title": "Sala SWAT",
-                    "category": "front",
-                    "map": "map_votorantim",
-                    "players": 6,
-                    "capacity": 12,
-                    "image": "http://google.com.br"
-                },
-                {
-                    "id": 15,
-                    "title": "Super Backends",
-                    "category": "backend",
-                    "map": "map_sp",
-                    "players": 10,
-                    "capacity": 12,
-                    "image": "http://google.com.br"
-                },
-                {
-                    "id": 321,
-                    "title": "Sala Projetos",
-                    "category": "fullstack",
-                    "map": "map_brasil",
-                    "players": 1,
-                    "capacity": 6
-                },
-                {
-                    "id": 111,
-                    "title": "Sala Numero 111",
-                    "category": "fullstack",
-                    "map": "map_react",
-                    "players": 12,
-                    "capacity": 12,
-                    "image": "http://google.com.br"
-                },
-                {
-                    "id": 175,
-                    "title": "Sala Super Senior",
-                    "category": "front",
-                    "map": "map_javascript",
-                    "players": 7,
-                    "capacity": 12,
-                    "image": "http://google.com.br"
-                },
-                {
-                    "id": 162,
-                    "title": "Sala EstagiÃ¡rios",
-                    "category": "backend",
-                    "map": "map_java",
-                    "players": 3,
-                    "capacity": 12,
-                    "image": "http://google.com.br"
-                }
-            ],
-            "online": 123,
-            "bans": 150
-        }
     }
 };
 swaggerAutogen(outputFile, endpointsFiles, doc).then(() => {

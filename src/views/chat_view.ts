@@ -8,7 +8,6 @@ export function chatRender(message: Omit<Chat, 'author.password'>) {
     createdAt: message.createdAt,
     updatedAt: message.updatedAt,
     deletedAt: message.deletedAt,
-    author: userRender(message.author),
   }
 }
 

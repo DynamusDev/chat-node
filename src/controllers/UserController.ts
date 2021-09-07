@@ -104,7 +104,7 @@ export default {
       console.error(err);
     }
 
-    const user: any = await userRepository.findOne(id, { relations: ['messages'] });
+    const user: any = await userRepository.findOne(id, { relations: ['messages', 'transactions'] });
     userRepository.merge(user, {
       name,
       email,
@@ -131,7 +131,7 @@ export default {
     // #swagger.description = 'Endpoint para mostrar os usuários.'
     const userRepository = getRepository(User);
 
-    const users = (await userRepository.find({ where: { deletedAt: null }, relations: ['messages'] }));
+    const users = (await userRepository.find({ where: { deletedAt: null }, relations: ['messages', 'transactions'] }));
 
     /* #swagger.responses[200] = { 
             schema: { $ref: "#/definitions/Users" },

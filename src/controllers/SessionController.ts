@@ -25,7 +25,7 @@ export default {
       password
     } = request.body;
     const usr = getRepository(User);
-    const user = await usr.findOne({ where: { email: email }, relations: ['messages'] });
+    const user = await usr.findOne({ where: { email: email }, relations: ['messages', 'transactions'] });
 
     if (!user) {
       /* #swagger.responses[403] = { 

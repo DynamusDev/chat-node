@@ -21,6 +21,10 @@
       "description": "Send"
     },
     {
+      "name": "Transactions",
+      "description": "Create and List"
+    },
+    {
       "name": "Upload",
       "description": "Upload images, videos and audios"
     }
@@ -278,6 +282,53 @@
         }
       }
     },
+    "/transactions/create": {
+      "post": {
+        "tags": [
+          "Transactions"
+        ],
+        "description": "Endpoint para criar transações.",
+        "parameters": [
+          {
+            "name": "Data",
+            "in": "body",
+            "required": true,
+            "description": "Nova transação",
+            "type": "object",
+            "schema": {
+              "$ref": "#/definitions/TransactionTemplate"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Transaction"
+            },
+            "message": "transação realizada"
+          }
+        }
+      }
+    },
+    "/transactions/list": {
+      "get": {
+        "tags": [
+          "Transactions"
+        ],
+        "description": "Endpoint para mostrar as transações.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Transactions"
+            },
+            "message": "O usuário foi cadastrado!!!"
+          }
+        }
+      }
+    },
     "/upload": {
       "post": {
         "tags": [
@@ -393,6 +444,66 @@
         "author": {
           "type": "number",
           "example": 1
+        }
+      }
+    },
+    "TransactionTemplate": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "example": "Freelance de website"
+        },
+        "category": {
+          "type": "string",
+          "example": "Desenvolvimento"
+        },
+        "type": {
+          "type": "string",
+          "example": "deposit"
+        },
+        "amount": {
+          "type": "number",
+          "example": 6000
+        },
+        "user": {
+          "type": "number",
+          "example": 1
+        }
+      }
+    },
+    "Transaction": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "example": "Freelance de website"
+        },
+        "category": {
+          "type": "string",
+          "example": "Desenvolvimento"
+        },
+        "type": {
+          "type": "string",
+          "example": "deposit"
+        },
+        "amount": {
+          "type": "number",
+          "example": 6000
+        },
+        "user": {
+          "type": "object",
+          "properties": {}
+        }
+      }
+    },
+    "Transactions": {
+      "type": "object",
+      "properties": {
+        "transactions": {
+          "type": "array",
+          "example": [],
+          "items": {}
         }
       }
     },

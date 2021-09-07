@@ -30,6 +30,10 @@ const doc = {
       "description": "Send"
     },
     {
+      "name": "Transactions",
+      "description": "Create and List"
+    },
+    {
       "name": "Upload",
       "description": "Upload images, videos and audios"
     },
@@ -62,6 +66,23 @@ const doc = {
     MessageTemplate: {
       message: 'E aí, qual vai ser?',
       author: 1
+    },
+    TransactionTemplate: {
+      title: 'Freelance de website',
+      category: 'Desenvolvimento',
+      type: 'deposit',
+      amount: 6000,
+      user: 1
+    },
+    Transaction: {
+      title: 'Freelance de website',
+      category: 'Desenvolvimento',
+      type: 'deposit',
+      amount: 6000,
+      user: {}
+    },
+    Transactions: {
+      transactions: []
     },
     CreateError: {
       error: 'Esse usuário já existe'
