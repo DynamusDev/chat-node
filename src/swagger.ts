@@ -63,6 +63,7 @@ const doc = {
       status: 200,
       message: 'Uma nova senha foi enviada para o seu email',
     },
+    Success: true,
     MessageTemplate: {
       message: 'E aí, qual vai ser?',
       author: 1

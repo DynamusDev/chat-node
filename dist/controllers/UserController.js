@@ -71,19 +71,14 @@ exports.default = {
                 abortEarly: false
             });
             await userRepository.save(newUser);
-            /* #swagger.responses[200] = {
-                    schema: { $ref: "#/definitions/User" },
-                    message: 'O usuário foi cadastrado!!!'
+            /* #swagger.responses[201] = {
+                    schema: { $ref: "#/definitions/Success" }
             } */
             /* #swagger.responses[400] = {
                     schema: { $ref: "#/definitions/CreateError" },
                     error: 'Esse usuário já existe'
             } */
-            return response.status(200).json({
-                status: 200,
-                message: 'O usuário ' + name + ' foi cadastrado!!!',
-                user: user_view_1.userRender(newUser)
-            });
+            return response.status(201).json(true);
         }
     },
     async edit(request, response) {
