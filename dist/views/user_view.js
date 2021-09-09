@@ -10,7 +10,7 @@ function userRender(user) {
         email: user.email,
         image: user.image,
         messages: chat_view_1.chatRenderMany(user.messages),
-        transactions: user.transactions,
+        transactions: transactions_view_1.transactionRenderMany(user.transactions),
         createdAt: user.createdAt,
         updatedAt: user.updatedAt,
         deletedAt: user.deletedAt,

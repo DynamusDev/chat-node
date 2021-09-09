@@ -9,7 +9,7 @@ export function userRender(user: User) {
     email: user.email,
     image: user.image,
     messages: chatRenderMany(user.messages),
-    transactions: user.transactions,
+    transactions: transactionRenderMany(user.transactions),
     createdAt: user.createdAt,
     updatedAt: user.updatedAt,
     deletedAt: user.deletedAt,
