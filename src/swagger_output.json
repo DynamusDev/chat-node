@@ -141,12 +141,11 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "OK",
+          "201": {
+            "description": "Created",
             "schema": {
-              "$ref": "#/definitions/User"
-            },
-            "message": "O usuário foi cadastrado!!!"
+              "$ref": "#/definitions/Success"
+            }
           },
           "400": {
             "description": "Bad Request",
@@ -433,6 +432,10 @@
           "example": "Uma nova senha foi enviada para o seu email"
         }
       }
+    },
+    "Success": {
+      "type": "boolean",
+      "example": true
     },
     "MessageTemplate": {
       "type": "object",
