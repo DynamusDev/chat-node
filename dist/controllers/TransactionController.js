@@ -37,7 +37,7 @@ exports.default = {
         return response.status(200).json({
             status: 200,
             message: 'transação realizada',
-            transation: transactions_view_1.transactionRender(newTransaction)
+            transation: newTransaction
         });
     },
     async list(request, response) {
