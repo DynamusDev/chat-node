@@ -5,7 +5,7 @@
         "title": "Dynamusdev API",
         "description": "Documentação para a API Dynamusdev."
     },
-    "host": "localhost:3333",
+    "host": "chat-cadmus.herokuapp.com",
     "basePath": "/",
     "tags": [
         {
