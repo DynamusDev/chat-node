@@ -46,7 +46,7 @@ export default {
     return response.status(200).json({
       status: 200,
       message: 'transação realizada',
-      transation: newTransaction
+      transaction: newTransaction
     });
   },
 
