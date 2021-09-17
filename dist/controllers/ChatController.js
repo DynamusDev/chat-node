@@ -31,11 +31,7 @@ exports.default = {
                 message: 'O usuário foi cadastrado!!!'
         } */
         request.socket.emit('chat', data);
-        return response.status(200).json({
-            status: 200,
-            message: 'mensagem enviada!!!',
-            sendedMessage: chat_view_1.chatRender(newMessage)
-        });
+        return response.status(200).json(true);
     },
     async list(request, response) {
         // #swagger.tags = ['Message']

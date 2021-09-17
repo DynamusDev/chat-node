@@ -36,11 +36,7 @@ export default {
             message: 'O usuário foi cadastrado!!!' 
     } */
     request.socket.emit('chat', data)
-    return response.status(200).json({
-      status: 200,
-      message: 'mensagem enviada!!!',
-      sendedMessage: chatRender(newMessage)
-    });
+    return response.status(200).json(true);
   },
 
   async list(request: Request, response: Response) {
